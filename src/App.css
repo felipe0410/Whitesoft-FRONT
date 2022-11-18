@@ -1,0 +1,257 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+:root {
+  --primario: #e5ffff;
+  --secundario: #f7ffff;
+  --terciario: #eee1e1;
+  --cuarto: #cf0b53ed;
+  --footer: #552247;
+  --blanco : #ffffff;
+  --negro : rgb(0, 0, 0);
+  --fuente: font-family: 'Baloo 2', cursive;
+
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /**para trabajar con rem**/
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/**globales**/
+li {
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+}
+form {
+  align-items: center;
+  margin: 0 auto;
+}
+h1,h2,h3{
+  text-align: center;
+}
+
+label.box1{
+  display: block;
+  text-align: start;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+
+}
+input.box2 {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 3rem;
+}
+select.box2{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 3rem;
+}
+
+/** header **/
+body .header{
+  background-color: var(--primario);
+}
+header {
+  background-color: var(--primario);
+  width: 100%;
+  font-size: 2rem;
+}
+
+
+header a {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+header li {
+  text-decoration: none;
+  list-style: none;
+}
+header .iconos .titulo .header-logo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+header .iconos .titulo h1 {
+  align-items: center;
+}
+
+header .iconos .titulo img {
+  width: 30rem;
+}
+
+.header .iconos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 3rem;
+}
+
+.header .iconos a {
+  padding: 1rem;
+}
+
+
+.header .iconos .titulo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header .iconos .iconoss {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+header .secciones {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+}
+
+@media screen and (max-width:769px){ 
+  header .secciones {
+    display: none;
+  }
+  .header .iconos .iconoss {
+    margin: 0 auto;
+  }
+  
+}
+/**footer__________________________________________**/
+.pie-pagina{
+  width: 100%;
+  background-color: var(--primario);
+}
+.box{
+  justify-self: center;
+}
+.footer-img{
+  width: 12rem;
+  justify-items:center;
+}
+.pie-pagina .grupo-1{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+
+}
+
+.pie-pagina .grupo-1 figure{
+  margin: 1em;
+}
+
+.pie-pagina .grupo-1 .box .figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.pie-pagina .grupo-1 .box .figure{
+ width: 250px; 
+}
+
+.pie-pagina .grupo-1 .box h2{
+  color: var(--negro);
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p{
+  color: var(--negro);
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: var(--negro);
+  margin: 0 10px 10px 0;
+  background-color: var(--secundario);
+  text-align: center;
+  transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+  color: rgb(226, 255, 251);
+}
+
+.pie-pagina .grupo-2 {
+  background-color:var(--secundario);
+  padding: 15px 10px;
+  text-align: center;
+  color: var(--negro);
+  font-size: 15px;
+}
+.card-img{
+  margin: 0 5px 5px 0;
+  width: auto;
+}
+
+@media screen and (max-width:769px){ 
+  .pie-pagina .grupo-1{
+      width: 85%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 30px;
+      padding: 35px 0px;
+  
+  } 
+}
+/* formulario */
+.boxx {
+  width: 38%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.button{
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  padding: 1rem;
+  background: #000;
+  color: white;
+}
+
+input:focus, input[type]:focus {
+  border-color: rgb(0, 0, 0);
+/*   box-shadow: 0 1px 1px rgba(0, 86, 92, 0.075)inset, 0 0 8px rgba(0, 238, 255, 0.479); */
+  outline: 0 none;
+}
+.errors{
+  color: red;
+  
+}
