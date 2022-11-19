@@ -7,6 +7,9 @@ const initialForm = {
   correo: "",
   contraseña: "",
 };
+
+
+
 /* validaiones */
 const validationsForm = (form) => {
   let errors = {};
@@ -48,12 +51,13 @@ function Formulario(params) {
   const {
     form,
     errors,
-/*     loading,
-    response, */
+    loading,
+    response,
     handleChange,
     handleBlur,
     handleSubmit,
   } = useForm(initialForm, validationsForm);
+
 
   const [paises, setpaises] = useState([]);
 
@@ -66,23 +70,19 @@ useEffect(() => {
         }).catch(error => console.error(error));
   }, [])
 
-const [back, setback] = useState([]);
-  useEffect(() => {
-    console.log("%cSe monto el componente", "color:red")
-    fetch(("http://localhost:3002/register")).then(
-      response => response.json()).then(
-        data => {
-          setback(data)
-        }).catch(error => console.error(error));
-  }, [])
 
-  console.log(back )
+
 
   return (
     <div className="boxx">
       <h1>CREAR CUENTA</h1>
+      <h2 className="true">{loading}</h2>
+      { <p className="errors">{errors.nombre}</p>}
+
+      {errors.nombre && <p className="errors">{errors.nombre}</p>}
 
       <form onSubmit={handleSubmit}>
+
         <label className="box1">NOMBRES</label>
         <input className="box2"
           type="text"
@@ -93,7 +93,8 @@ const [back, setback] = useState([]);
           value={form.nombre}
           required
         />
-        {errors.nombre && <p className="errors">{errors.nombre}</p>}
+      {errors.nombre && <p className="errors">{errors.nombre}</p>}
+
         <label className="box1">APELLIDOS</label>
         <input className="box2"
           type="text"
@@ -117,6 +118,7 @@ const [back, setback] = useState([]);
         />
         {errors.correo && <p className="errors">{errors.correo}</p>}
         <label className="box1">CONTRASEÑA</label>
+
         <input className="box2"
           type="password"
           name="contraseña"
@@ -126,7 +128,7 @@ const [back, setback] = useState([]);
           value={form.contraseña}
           required
         />
-        {errors.contraseña && <p className="errors">{errors.contraseña}</p>}
+               {errors.contraseña && <p className="errors">{errors.contraseña}</p>}
         <label className="box1">NACIONALIDAD</label>
         <select className="box2" name="pais">
           {!paises ? "cargando" : paises.map((paises,name)=>{
