@@ -66,7 +66,7 @@ function Formulario(params) {
         }).catch(error => console.error(error));
   }, [])
 
-  console.log(paises)
+  
   return (
 
     <div className="boxx">
