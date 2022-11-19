@@ -12,7 +12,7 @@ const validationsForm = (form) => {
   let errors = {};
   let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
   let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
-  let regexComments = /^.{1,8}$/;
+  let regexComments = /^.{8,8}$/;
 
   if (!form.nombre.trim()) {
     errors.nombre = "El campo 'Nombre' es requerido";
@@ -37,7 +37,7 @@ const validationsForm = (form) => {
     errors.contraseña = "El campo 'contraseña' es requerido";
   } else if (!regexComments.test(form.contraseña.trim())) {
     errors.contraseña =
-      "El campo 'contraseña' no debe exceder los 8 caracteres";
+      "El campo 'contraseña' debe tener 8 caracteres";
   }
 
   return errors;
@@ -48,8 +48,8 @@ function Formulario(params) {
   const {
     form,
     errors,
-    loading,
-    response,
+/*     loading,
+    response, */
     handleChange,
     handleBlur,
     handleSubmit,
@@ -57,7 +57,7 @@ function Formulario(params) {
 
   const [paises, setpaises] = useState([]);
 
-  useEffect(() => {
+useEffect(() => {
     console.log("%cSe monto el componente", "color:green")
     fetch(("https://restcountries.com/v2/all?fields=name")).then(
       response => response.json()).then(
@@ -66,9 +66,19 @@ function Formulario(params) {
         }).catch(error => console.error(error));
   }, [])
 
-  
-  return (
+const [back, setback] = useState([]);
+  useEffect(() => {
+    console.log("%cSe monto el componente", "color:red")
+    fetch(("http://localhost:3002/register")).then(
+      response => response.json()).then(
+        data => {
+          setback(data)
+        }).catch(error => console.error(error));
+  }, [])
 
+  console.log(back )
+
+  return (
     <div className="boxx">
       <h1>CREAR CUENTA</h1>
 
@@ -113,7 +123,7 @@ function Formulario(params) {
           placeholder="Esccribe tu contraseña de 8 caracteres"
           onBlur={handleBlur}
           onChange={handleChange}
-          alue={form.contraseña}
+          value={form.contraseña}
           required
         />
         {errors.contraseña && <p className="errors">{errors.contraseña}</p>}

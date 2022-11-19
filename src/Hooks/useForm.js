@@ -4,11 +4,10 @@ export const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState(null);
+  const [response, setresponse] = useState([]);
   /* _________________________________________________ */
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setForm({
       ...form,
       [name]: value,
@@ -30,11 +29,9 @@ export const useForm = (initialForm, validateForm) => {
       }
     }).then(res => res.json())
       .catch(error => console.error('Error:mal', error))
-      .then(response => console.log(JSON.stringify(form) ));
-
+      .then(response => console.log());
   };
   /* __________________________________________________________ */
-
   return {
     form,
     errors,
